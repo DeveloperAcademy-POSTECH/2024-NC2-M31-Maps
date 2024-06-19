@@ -13,6 +13,7 @@ extension Color{
     static let customLightGray = Color(hex: "747480")
     static let customGray = Color(hex: "3C3C43")
     static let customOrange = Color(hex: "FF9500")
+    static let customDarGray = Color(hex: "C6C6C8")
 }
 
 extension Color {

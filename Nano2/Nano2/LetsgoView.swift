@@ -113,96 +113,138 @@ struct TrackingView: View {
     @State var placeResult: [MapLocation] = []
     
     var body: some View {
-        Map(position: $position){
-            MapPolyline(coordinates: locationViewModel.CLwalkingRoute)
-                .stroke(.blue, lineWidth: 5)
+        VStack(spacing: 24){
+            Map(position: $position){
+                MapPolyline(coordinates: locationViewModel.CLwalkingRoute)
+                    .stroke(.blue, lineWidth: 5)
+                
+                if let location = locationViewModel.thisLocation {
+                    Annotation("내위치", coordinate: location.coordinate){
+                        Image("pin")
+                            .resizable()
+                            .frame(width: 74, height: 89)
+                            .offset(y:-25)
+                    }
+                }
+                
+                ForEach(placeResult) { result in
+                    Annotation(result.name, coordinate: CLLocationCoordinate2D(latitude: result.latitude, longitude: result.longitude))
+                    {
+                        Circle()
+                            .fill(Color.yellow)
+                            .stroke(Color.white, lineWidth: 2)
+                    }
+                }
+            }
+            .mapControls{
+                MapUserLocationButton()
+            }
+//            .frame(height: 618)
             
-            if let location = locationViewModel.thisLocation {
-                Annotation("내위치", coordinate: location.coordinate){
-                    Image("pin")
-                        .resizable()
-                        .frame(width: 74, height: 89)
-                        .offset(y:-25)
+            
+            
+            ZStack{
+                Rectangle()
+                    .fill(Color(red: 0.45, green: 0.45, blue: 0.5).opacity(0.08))
+                    .frame(width: 353, height: 72)
+                    .cornerRadius(12)
+                
+                
+                HStack(alignment: .center, spacing: 20){
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("산책 시간")
+                            .font(.system(size: 15))
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color.customGray)
+                        
+                        Text("04:56")
+                            .font(.system(size: 17))
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color.customOrange)
+                    }
+                    .frame(width: 70)
+                    Rectangle()
+                        .fill(Color.customDarGray)
+                        .frame(width: 1, height: 40)
+                    
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("산책 시간")
+                            .font(.system(size: 15))
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color.customGray)
+                        
+                        Text("04:56")
+                            .font(.system(size: 17))
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color.customOrange)
+                    }
+                    .frame(width: 70)
+                    
+                    
+                    Rectangle()
+                        .fill(Color.customDarGray)
+                        .frame(width: 1, height: 40)
+                    
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("산책 시간")
+                            .font(.system(size: 15))
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color.customGray)
+                        
+                        Text("04:56")
+                            .font(.system(size: 17))
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color.customOrange)
+                    }
+                    .frame(width: 70)
                 }
             }
             
-            ForEach(placeResult) { result in
-                Annotation(result.name, coordinate: CLLocationCoordinate2D(latitude: result.latitude, longitude: result.longitude))
-                {
-                    Circle()
-                        .fill(Color.yellow)
-                        .stroke(Color.white, lineWidth: 2)
+            
+            
+            Text("마킹하기")
+                .font(.system(size: 17))
+                .fontWeight(.semibold)
+                .foregroundColor(Color.white)
+                .padding(.horizontal, 20)
+                .padding(.vertical, 14)
+                .frame(width: 353, alignment: .center)
+                .background(Color.customOrange)
+                .cornerRadius(12)
+            
+                .onTapGesture {
+                    let marking = MapLocation(
+                        name:  "마킹_\(placeResult.count)",
+                        latitude: locationViewModel.thisLocation?.coordinate.latitude ?? 0,
+                        longitude: locationViewModel.thisLocation?.coordinate.longitude ?? 0)
+                    
+                    //                let moneyInput = WalkInput(walk: marking)
+                    
+                    placeResult.append(marking)
                 }
-            }
-        }
-        .mapControls{
-            MapUserLocationButton()
+            
+//            Text("종료하기")
+//                .onTapGesture {
+//                    
+//                    let loc = convertCLLocToLoc(CLLoc: locationViewModel.CLwalkingRoute)
+//                    let newWalk = WalkInput(walkingRoute: loc, distance: Int(locationViewModel.totalDistance), time: elapsedTime, marking: placeResult)
+//                    
+//                    for l in loc{
+//                        print(l.latitude, l.longitude)
+//                    }
+//                    
+//                    modelContext.insert(newWalk)
+//                    
+//                    
+//                    dismiss()
+//                    
+//                    
+//                }
         }
         .onAppear {
             startTime = Date()
             startTimer()
         }
-        
-        Rectangle()
-            .fill(Color(red: 0.45, green: 0.45, blue: 0.5).opacity(0.08))
-            .frame(width: 353, height: 72)
-            .cornerRadius(12)
-        
-        
-        VStack {
-            VStack {
-                HStack{
-                    Text( String(coordinate?.latitude ?? 0))
-                    Text( String(coordinate?.longitude ?? 0))
-                    
-                }
-                HStack{
-                    Text("Distance")
-                    Text(String(locationViewModel.totalDistance))
-                }
-                
-                HStack{
-                    Text("Time")
-                    Text(convertSecondsToTime(timeInSeconds: elapsedTime))
-                }
-                HStack{                           
-                    Text("마킹 횟수")
-                    Text(String(placeResult.count))
-                }
-                
-            }
-            .padding()
-        }
-        
-        
-        Text("마킹하기")
-            .onTapGesture {
-                let marking = MapLocation(
-                    name:  "마킹_\(placeResult.count)",
-                    latitude: locationViewModel.thisLocation?.coordinate.latitude ?? 0,
-                    longitude: locationViewModel.thisLocation?.coordinate.longitude ?? 0)
-                
-                //                let moneyInput = WalkInput(walk: marking)
-                
-                placeResult.append(marking)
-            }
-        
-        Text("종료하기")
-            .onTapGesture {
-                
-                let loc = convertCLLocToLoc(CLLoc: locationViewModel.CLwalkingRoute)
-                let newWalk = WalkInput(walkingRoute: loc, distance: Int(locationViewModel.totalDistance), time: elapsedTime, marking: placeResult)
-                
-                for l in loc{
-                    print(l.latitude, l.longitude)
-                }
-                
-                modelContext.insert(newWalk)
-                
-                
-                dismiss()
-                
-            }
     }
     
     var coordinate: CLLocationCoordinate2D? {
