@@ -21,9 +21,9 @@ import SwiftData
 
 struct LetsgoView: View {
     @Environment(\.modelContext) private var modelContext
-
+    
     @StateObject var locationViewModel = LocationViewModel()
-//    @Binding var walks: [Walk]
+    //    @Binding var walks: [Walk]
     
     var body: some View {
         switch locationViewModel.authorizationStatus {
@@ -45,7 +45,7 @@ struct LetsgoView: View {
 
 struct RequestLocationView: View {
     @Environment(\.modelContext) private var modelContext
-
+    
     @EnvironmentObject var locationViewModel: LocationViewModel
     
     var body: some View {
@@ -97,7 +97,8 @@ struct TrackingView: View {
     
     
     
-    var startTime = Date()
+    @State private var startTime: Date?
+    @State private var elapsedTime: Int = 0
     
     
     @EnvironmentObject var locationViewModel: LocationViewModel
@@ -137,6 +138,15 @@ struct TrackingView: View {
         .mapControls{
             MapUserLocationButton()
         }
+        .onAppear {
+            startTime = Date()
+            startTimer()
+        }
+        
+        Rectangle()
+            .fill(Color(red: 0.45, green: 0.45, blue: 0.5).opacity(0.08))
+            .frame(width: 353, height: 72)
+            .cornerRadius(12)
         
         
         VStack {
@@ -153,7 +163,7 @@ struct TrackingView: View {
                 
                 HStack{
                     Text("Time")
-                    Text(convertSecondsToTime(timeInSeconds: Int(Date().timeIntervalSince(startTime))))
+                    Text(convertSecondsToTime(timeInSeconds: elapsedTime))
                 }
                 HStack{                           
                     Text("마킹 횟수")
@@ -172,8 +182,8 @@ struct TrackingView: View {
                     latitude: locationViewModel.thisLocation?.coordinate.latitude ?? 0,
                     longitude: locationViewModel.thisLocation?.coordinate.longitude ?? 0)
                 
-//                let moneyInput = WalkInput(walk: marking)
-
+                //                let moneyInput = WalkInput(walk: marking)
+                
                 placeResult.append(marking)
             }
         
@@ -181,7 +191,7 @@ struct TrackingView: View {
             .onTapGesture {
                 
                 let loc = convertCLLocToLoc(CLLoc: locationViewModel.CLwalkingRoute)
-                let newWalk = WalkInput(walkingRoute: loc, distance: Int(locationViewModel.totalDistance), time: Int(Date().timeIntervalSince(startTime)), marking: placeResult)
+                let newWalk = WalkInput(walkingRoute: loc, distance: Int(locationViewModel.totalDistance), time: elapsedTime, marking: placeResult)
                 
                 for l in loc{
                     print(l.latitude, l.longitude)
@@ -208,7 +218,7 @@ struct TrackingView: View {
     
     func convertCLLocToLoc(CLLoc: [CLLocationCoordinate2D]) -> [LocationInfo] {
         var walkingRoute: [LocationInfo] = []
-
+        
         print(CLLoc)
         print()
         for CLLocation in CLLoc {
@@ -218,6 +228,13 @@ struct TrackingView: View {
         }
         return walkingRoute
     }
+    
+    func startTimer() {
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            elapsedTime = Int(Date().timeIntervalSince(startTime ?? Date()))
+        }
+    }
+    
 }
 
 
@@ -225,7 +242,7 @@ struct TrackingView: View {
 #Preview {
     LetsgoView()
         .modelContainer(for: [WalkInput.self, MapLocation.self, LocationInfo.self], inMemory: true)
-
+    
 }
 
 
