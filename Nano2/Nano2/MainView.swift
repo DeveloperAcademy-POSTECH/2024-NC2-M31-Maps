@@ -11,31 +11,40 @@ struct MainView: View {
     
 
     var body: some View {
-//        ContentView()
-        WalkBtn
-        DiaryBtn
+        VStack(alignment: .leading, spacing: 16){
+            WalkBtn
+            ScrollView(.horizontal) {
+                HStack{
+                    DiaryBtn
+                    StatisticsBtn
+                }
+            }
+        }
+        .padding(.leading, 20)
     }
     
     var WalkBtn: some View {
-        NavigationLink(destination: LetsgoView(), label: {
-            Image(systemName: "map.circle")
-                .resizable()
-                .frame(width: 138, height: 150)
-        }
-                       )
-//        .toolbar(.hidden, for: .navigationBar)
-
+        NavigationLink(
+            destination: LetsgoView().navigationBarTitleDisplayMode(.inline),
+                       label: { Image("산책가자1") } )
+        
     }
     
     var DiaryBtn: some View {
-        NavigationLink(destination: WalkDiaryView().navigationBarTitle("산책 기록"), label: {
-            Image(systemName: "map.circle")
-                .resizable()
-                .frame(width: 138, height: 150)
-        })
-//        .toolbar(.hidden, for: .navigationBar)
-
-
+        NavigationLink(
+            destination: WalkDiaryView()
+                .navigationBarTitle("산책 기록")
+                .navigationBarTitleDisplayMode(.inline),
+            label: { Image("산책기록1") })
+    }
+    
+    var StatisticsBtn: some View {
+        NavigationLink(
+            destination: 
+                StatisticsView()
+                .navigationBarTitle("산책 통계")
+                .navigationBarTitleDisplayMode(.inline),
+            label: { Image("산책통계1") })
     }
 }
 

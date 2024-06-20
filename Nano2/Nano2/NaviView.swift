@@ -12,6 +12,7 @@ struct NaviView: View {
     var body: some View {
         NavigationStack{
             MainView()
+                .navigationTitle("쉬도")
         }
         .tint(Color.customOrange)
     }
