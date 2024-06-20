@@ -17,12 +17,13 @@ struct MainView: View {
     }
     
     var WalkBtn: some View {
-        NavigationLink(destination: LetsgoView().toolbar(.hidden), label: {
+        NavigationLink(destination: LetsgoView(), label: {
             Image(systemName: "map.circle")
                 .resizable()
                 .frame(width: 138, height: 150)
-        })
-        .toolbar(.hidden, for: .navigationBar)
+        }
+                       )
+//        .toolbar(.hidden, for: .navigationBar)
 
     }
     
@@ -32,7 +33,7 @@ struct MainView: View {
                 .resizable()
                 .frame(width: 138, height: 150)
         })
-        .toolbar(.hidden, for: .navigationBar)
+//        .toolbar(.hidden, for: .navigationBar)
 
 
     }

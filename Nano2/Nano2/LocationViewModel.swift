@@ -15,6 +15,7 @@ extension CLLocationCoordinate2D{
     static let home = CLLocationCoordinate2D(latitude: 38.33170, longitude: -122.030237)
 }
 
+
 class LocationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var authorizationStatus: CLAuthorizationStatus
     @Published var thisLocation: CLLocation?
@@ -51,11 +52,14 @@ class LocationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     func requestPermission() {
         locationManager.requestWhenInUseAuthorization()
+        
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         authorizationStatus = manager.authorizationStatus
     }
+        
+    
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         

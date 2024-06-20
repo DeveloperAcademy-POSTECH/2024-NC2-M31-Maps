@@ -19,6 +19,8 @@ struct Move {
 
 @Model
 class LocationInfo {
+    @Attribute(.unique) var date = Date()
+
     var latitude: Double
     var longitude: Double
     
@@ -26,12 +28,13 @@ class LocationInfo {
         self.latitude = latitude
         self.longitude = longitude
     }
+    
 }
 
 
 @Model
-class MapLocation {
-    @Attribute(.unique) var id: UUID = UUID()
+class MapLocation : Identifiable {
+    @Attribute(.unique) var date = Date()
 
     var name: String
     
@@ -41,12 +44,13 @@ class MapLocation {
 //    var coordinate: CLLocationCoordinate2D {
 //        CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
 //    }
-    init(name: String, latitude: Double, longitude: Double) {
+    
+    init(date: Date = Date(), name: String, latitude: Double, longitude: Double) {
+        self.date = date
         self.name = name
         self.latitude = latitude
         self.longitude = longitude
     }
-
 }
 
 
