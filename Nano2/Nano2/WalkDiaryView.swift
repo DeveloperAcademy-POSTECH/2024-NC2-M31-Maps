@@ -136,7 +136,7 @@ struct WalkList: View {
                     }
                 }
                 .frame(height: 300)
-
+                
             }
         }
     }
@@ -149,28 +149,18 @@ struct WalkDiaryView: View {
     
     
     var body: some View {
-        
-        DatePicker("쉬도",selection: $SelectDate, displayedComponents: .date)
-            .labelsHidden()
-            .accentColor(.orange)
-            .datePickerStyle(GraphicalDatePickerStyle())
-            .frame(height: 366)
-        WalkList(SelectDate: SelectDate)
-        .padding(.horizontal, 20)
-        
-        //        resultview()
-        
-        
-        
-        
-        
-        
+        VStack{
+            DatePicker("쉬도",selection: $SelectDate, displayedComponents: .date)
+                .labelsHidden()
+                .accentColor(.orange)
+                .datePickerStyle(GraphicalDatePickerStyle())
+                .frame(width: .infinity)
+            WalkList(SelectDate: SelectDate)
+                .padding(.horizontal, 20)
+//                .frame(height: 336)
+
+        }
     }
-    
-    
-    
-    
-    
 }
 
 #Preview {

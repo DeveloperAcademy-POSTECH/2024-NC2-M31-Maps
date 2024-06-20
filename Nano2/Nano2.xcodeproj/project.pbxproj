@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE11AC7C2C248FFE006A79B3 /* 준비중2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DE11AC7B2C248FFE006A79B3 /* 준비중2.jpg */; };
+		DE11AC7E2C249066006A79B3 /* 준비중.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DE11AC7D2C249066006A79B3 /* 준비중.jpg */; };
 		DE12252F2C23FF7100E1ED6C /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE12252E2C23FF7100E1ED6C /* ResultView.swift */; };
 		DE1225372C24198900E1ED6C /* MarkingPin.png in Resources */ = {isa = PBXBuildFile; fileRef = DE1225362C24198900E1ED6C /* MarkingPin.png */; };
 		DE245A092C21D6E0001595F6 /* locationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE245A082C21D6A4001595F6 /* locationModel.swift */; };
@@ -25,9 +27,15 @@
 		DE7ACF792C19794500996BFB /* Nano2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7ACF782C19794500996BFB /* Nano2App.swift */; };
 		DE7ACF7D2C19794600996BFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE7ACF7C2C19794600996BFB /* Assets.xcassets */; };
 		DE7ACF802C19794600996BFB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE7ACF7F2C19794600996BFB /* Preview Assets.xcassets */; };
+		DE8918D02C248CC2009CCEDD /* 산책통계1.png in Resources */ = {isa = PBXBuildFile; fileRef = DE8918CD2C248CC2009CCEDD /* 산책통계1.png */; };
+		DE8918D12C248CC2009CCEDD /* 산책기록1.png in Resources */ = {isa = PBXBuildFile; fileRef = DE8918CE2C248CC2009CCEDD /* 산책기록1.png */; };
+		DE8918D22C248CC2009CCEDD /* 산책가자1.png in Resources */ = {isa = PBXBuildFile; fileRef = DE8918CF2C248CC2009CCEDD /* 산책가자1.png */; };
+		DE8918D42C248ED1009CCEDD /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8918D32C248ED1009CCEDD /* StatisticsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DE11AC7B2C248FFE006A79B3 /* 준비중2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "준비중2.jpg"; sourceTree = "<group>"; };
+		DE11AC7D2C249066006A79B3 /* 준비중.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "준비중.jpg"; sourceTree = "<group>"; };
 		DE12252E2C23FF7100E1ED6C /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		DE1225362C24198900E1ED6C /* MarkingPin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MarkingPin.png; sourceTree = "<group>"; };
 		DE245A082C21D6A4001595F6 /* locationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = locationModel.swift; sourceTree = "<group>"; };
@@ -48,6 +56,10 @@
 		DE7ACF782C19794500996BFB /* Nano2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nano2App.swift; sourceTree = "<group>"; };
 		DE7ACF7C2C19794600996BFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE7ACF7F2C19794600996BFB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DE8918CD2C248CC2009CCEDD /* 산책통계1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "산책통계1.png"; sourceTree = "<group>"; };
+		DE8918CE2C248CC2009CCEDD /* 산책기록1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "산책기록1.png"; sourceTree = "<group>"; };
+		DE8918CF2C248CC2009CCEDD /* 산책가자1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "산책가자1.png"; sourceTree = "<group>"; };
+		DE8918D32C248ED1009CCEDD /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		DEA81A112C1DF8D700448448 /* dummyLocation.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = dummyLocation.gpx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,7 +103,13 @@
 				DE73005E2C1FC679000282ED /* LetsgoView.swift */,
 				DE7300602C1FE342000282ED /* WalkDiaryView.swift */,
 				DE12252E2C23FF7100E1ED6C /* ResultView.swift */,
+				DE8918D32C248ED1009CCEDD /* StatisticsView.swift */,
 				DE7ACF7C2C19794600996BFB /* Assets.xcassets */,
+				DE11AC7D2C249066006A79B3 /* 준비중.jpg */,
+				DE11AC7B2C248FFE006A79B3 /* 준비중2.jpg */,
+				DE8918CF2C248CC2009CCEDD /* 산책가자1.png */,
+				DE8918CE2C248CC2009CCEDD /* 산책기록1.png */,
+				DE8918CD2C248CC2009CCEDD /* 산책통계1.png */,
 				DE1225362C24198900E1ED6C /* MarkingPin.png */,
 				DE7300662C208950000282ED /* pin.png */,
 				DE371AF42C2481CC002FFC0F /* 산책가자.png */,
@@ -173,13 +191,18 @@
 			files = (
 				DE371AF52C2481CC002FFC0F /* 산책통계.png in Resources */,
 				DE1225372C24198900E1ED6C /* MarkingPin.png in Resources */,
+				DE8918D02C248CC2009CCEDD /* 산책통계1.png in Resources */,
 				DE371AF82C2481CC002FFC0F /* Group 320.png in Resources */,
 				DE371AF72C2481CC002FFC0F /* 시작.png in Resources */,
+				DE8918D12C248CC2009CCEDD /* 산책기록1.png in Resources */,
+				DE8918D22C248CC2009CCEDD /* 산책가자1.png in Resources */,
 				DE371AF62C2481CC002FFC0F /* 산책기록.png in Resources */,
 				DE7ACF802C19794600996BFB /* Preview Assets.xcassets in Resources */,
 				DE7ACF7D2C19794600996BFB /* Assets.xcassets in Resources */,
+				DE11AC7E2C249066006A79B3 /* 준비중.jpg in Resources */,
 				DE7300672C208950000282ED /* pin.png in Resources */,
 				DE371AF92C2481CC002FFC0F /* 산책가자.png in Resources */,
+				DE11AC7C2C248FFE006A79B3 /* 준비중2.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE245A092C21D6E0001595F6 /* locationModel.swift in Sources */,
+				DE8918D42C248ED1009CCEDD /* StatisticsView.swift in Sources */,
 				DE7300652C1FE803000282ED /* NaviView.swift in Sources */,
 				DE12252F2C23FF7100E1ED6C /* ResultView.swift in Sources */,
 				DE7300632C1FE5B8000282ED /* MainView.swift in Sources */,
