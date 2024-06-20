@@ -21,15 +21,21 @@ struct MainView: View {
             Image(systemName: "map.circle")
                 .resizable()
                 .frame(width: 138, height: 150)
-        })
+        }
+                       )
+//        .toolbar(.hidden, for: .navigationBar)
+
     }
     
     var DiaryBtn: some View {
-        NavigationLink(destination: WalkDiaryView(), label: {
+        NavigationLink(destination: WalkDiaryView().toolbar(.hidden), label: {
             Image(systemName: "map.circle")
                 .resizable()
                 .frame(width: 138, height: 150)
         })
+//        .toolbar(.hidden, for: .navigationBar)
+
+
     }
 }
 

@@ -38,6 +38,7 @@ struct WalkDiaryView: View {
         Map(){
             
             ForEach(Walks) { walk in
+                
                 let cllocation = convertLocToCLLoc(Loc: walk.walkingRoute)
             
                 
