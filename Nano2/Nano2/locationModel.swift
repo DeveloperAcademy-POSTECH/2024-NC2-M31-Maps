@@ -10,6 +10,12 @@ import CoreLocation
 import SwiftData
 
 
+func convertSecondsToTime(timeInSeconds: Int) -> String {
+    let minutes = timeInSeconds / 60
+    let seconds = timeInSeconds % 60
+    return String(format: "%02i:%02i", minutes,seconds)
+}
+
 
 struct Move {
     var latitude: Double
@@ -61,12 +67,12 @@ class WalkInput {
     var date = Date()
     
     @Relationship var walkingRoute: [LocationInfo]
-    var distance: Int
+    var distance: String
     var time: Int
     
     @Relationship var marking: [MapLocation]
 
-    init(date: Date = Date(), walkingRoute: [LocationInfo], distance: Int, time: Int, marking: [MapLocation]) {
+    init(date: Date = Date(), walkingRoute: [LocationInfo], distance: String, time: Int, marking: [MapLocation]) {
         self.date = date
         self.walkingRoute = walkingRoute
         self.distance = distance

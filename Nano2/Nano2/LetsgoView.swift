@@ -145,7 +145,7 @@ struct TrackingView: View {
                     . padding(20)
                     .onTapGesture {
                         let route = convertCLLocToLoc(CLLoc: locationViewModel.CLwalkingRoute)
-                        let newWalk = WalkInput(walkingRoute: route, distance: Int(locationViewModel.totalDistance), time: elapsedTime, marking: placeResult)
+                        let newWalk = WalkInput(walkingRoute: route, distance: String(format: "%.2f", locationViewModel.totalDistance/1000), time: elapsedTime, marking: placeResult)
                         
                         for l in route{
                             print(l.latitude, l.longitude)
@@ -157,66 +157,7 @@ struct TrackingView: View {
                     }
             }
             
-            ZStack{
-                Rectangle()
-                    .fill(Color(red: 0.45, green: 0.45, blue: 0.5).opacity(0.08))
-                    .frame(width: 353, height: 72)
-                    .cornerRadius(12)
-                
-                
-                HStack(alignment: .center, spacing: 20){
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("산책 시간")
-                            .font(.system(size: 15))
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color.customGray)
-                        
-                        Text(convertSecondsToTime(timeInSeconds: elapsedTime))
-                            .font(.system(size: 17))
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color.customOrange)
-                    }
-                    .frame(width: 70)
-                    Rectangle()
-                        .fill(Color.customDarGray)
-                        .frame(width: 1, height: 40)
-                    
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("거리(km)")
-                            .font(.system(size: 15))
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color.customGray)
-                        
-//                        Text("\(locationViewModel.totalDistance/1000)")
-                        Text(String(format: "%.2f", locationViewModel.totalDistance/1000))
-
-                            .font(.system(size: 17))
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color.customOrange)
-                    }
-                    .frame(width: 70)
-                    
-                    
-                    Rectangle()
-                        .fill(Color.customDarGray)
-                        .frame(width: 1, height: 40)
-                    
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("마킹 횟수")
-                            .font(.system(size: 15))
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color.customGray)
-                        
-                        Text("+\(placeResult.count)")
-                            .font(.system(size: 17))
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color.customOrange)
-                    }
-                    .frame(width: 70)
-                }
-            }
-            
-            
+            result
             
             MarkingBtn
                 .onTapGesture {
@@ -239,32 +180,64 @@ struct TrackingView: View {
         }
     }
     
-    var coordinate: CLLocationCoordinate2D? {
-        locationViewModel.thisLocation?.coordinate
-    }
-    
-    func convertSecondsToTime(timeInSeconds: Int) -> String {
-        let minutes = timeInSeconds / 60
-        let seconds = timeInSeconds % 60
-        return String(format: "%02i:%02i", minutes,seconds)
-    }
-    
-    func convertCLLocToLoc(CLLoc: [CLLocationCoordinate2D]) -> [LocationInfo] {
-        var walkingRoute: [LocationInfo] = []
-        
-        print(CLLoc)
-        print()
-        for CLLocation in CLLoc {
-            let Location = LocationInfo(latitude: CLLocation.latitude, longitude: CLLocation.longitude)
-            walkingRoute.append(Location)
-            print(Location.latitude, Location.longitude)
-        }
-        return walkingRoute
-    }
-    
-    func startTimer() {
-        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-            elapsedTime = Int(Date().timeIntervalSince(startTime ?? Date()))
+    var result: some View {
+        ZStack{
+            Rectangle()
+                .fill(Color(red: 0.45, green: 0.45, blue: 0.5).opacity(0.08))
+                .frame(width: 353, height: 72)
+                .cornerRadius(12)
+            
+            
+            HStack(alignment: .center, spacing: 20){
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("산책 시간")
+                        .font(.system(size: 15))
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color.customGray)
+                    
+                    Text(convertSecondsToTime(timeInSeconds: elapsedTime))
+                        .font(.system(size: 17))
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color.customOrange)
+                }
+                .frame(width: 70)
+                Rectangle()
+                    .fill(Color.customDarGray)
+                    .frame(width: 1, height: 40)
+                
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("거리(km)")
+                        .font(.system(size: 15))
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color.customGray)
+                    
+//                        Text("\(locationViewModel.totalDistance/1000)")
+                    Text(String(format: "%.2f", locationViewModel.totalDistance/1000))
+
+                        .font(.system(size: 17))
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color.customOrange)
+                }
+                .frame(width: 70)
+                
+                
+                Rectangle()
+                    .fill(Color.customDarGray)
+                    .frame(width: 1, height: 40)
+                
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("마킹 횟수")
+                        .font(.system(size: 15))
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color.customGray)
+                    
+                    Text("+\(placeResult.count)")
+                        .font(.system(size: 17))
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color.customOrange)
+                }
+                .frame(width: 70)
+            }
         }
     }
     
@@ -291,6 +264,33 @@ struct TrackingView: View {
             .cornerRadius(12)
         
     }
+    
+    
+    var coordinate: CLLocationCoordinate2D? {
+        locationViewModel.thisLocation?.coordinate
+    }
+
+    
+    func convertCLLocToLoc(CLLoc: [CLLocationCoordinate2D]) -> [LocationInfo] {
+        var walkingRoute: [LocationInfo] = []
+        
+        print(CLLoc)
+        print()
+        for CLLocation in CLLoc {
+            let Location = LocationInfo(latitude: CLLocation.latitude, longitude: CLLocation.longitude)
+            walkingRoute.append(Location)
+            print(Location.latitude, Location.longitude)
+        }
+        return walkingRoute
+    }
+    
+    func startTimer() {
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            elapsedTime = Int(Date().timeIntervalSince(startTime ?? Date()))
+        }
+    }
+    
+
     
 }
 

@@ -28,7 +28,7 @@ struct MainView: View {
     }
     
     var DiaryBtn: some View {
-        NavigationLink(destination: WalkDiaryView().toolbar(.hidden), label: {
+        NavigationLink(destination: WalkDiaryView(), label: {
             Image(systemName: "map.circle")
                 .resizable()
                 .frame(width: 138, height: 150)
