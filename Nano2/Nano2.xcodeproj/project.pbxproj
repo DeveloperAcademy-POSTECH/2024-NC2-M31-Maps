@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE12252F2C23FF7100E1ED6C /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE12252E2C23FF7100E1ED6C /* ResultView.swift */; };
+		DE1225372C24198900E1ED6C /* MarkingPin.png in Resources */ = {isa = PBXBuildFile; fileRef = DE1225362C24198900E1ED6C /* MarkingPin.png */; };
 		DE245A092C21D6E0001595F6 /* locationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE245A082C21D6A4001595F6 /* locationModel.swift */; };
 		DE6324E72C23375F008EF5A7 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6324E62C23375F008EF5A7 /* LocationViewModel.swift */; };
 		DE6324E92C234957008EF5A7 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6324E82C234957008EF5A7 /* ColorExtension.swift */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DE12252E2C23FF7100E1ED6C /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		DE1225362C24198900E1ED6C /* MarkingPin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MarkingPin.png; sourceTree = "<group>"; };
 		DE245A082C21D6A4001595F6 /* locationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = locationModel.swift; sourceTree = "<group>"; };
 		DE6324E62C23375F008EF5A7 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		DE6324E82C234957008EF5A7 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
@@ -74,7 +78,9 @@
 				DE7300622C1FE5B8000282ED /* MainView.swift */,
 				DE73005E2C1FC679000282ED /* LetsgoView.swift */,
 				DE7300602C1FE342000282ED /* WalkDiaryView.swift */,
+				DE12252E2C23FF7100E1ED6C /* ResultView.swift */,
 				DE7ACF7C2C19794600996BFB /* Assets.xcassets */,
+				DE1225362C24198900E1ED6C /* MarkingPin.png */,
 				DE7300662C208950000282ED /* pin.png */,
 				DE7ACF7E2C19794600996BFB /* Preview Content */,
 				DE6324E82C234957008EF5A7 /* ColorExtension.swift */,
@@ -148,6 +154,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE1225372C24198900E1ED6C /* MarkingPin.png in Resources */,
 				DE7ACF802C19794600996BFB /* Preview Assets.xcassets in Resources */,
 				DE7ACF7D2C19794600996BFB /* Assets.xcassets in Resources */,
 				DE7300672C208950000282ED /* pin.png in Resources */,
@@ -163,6 +170,7 @@
 			files = (
 				DE245A092C21D6E0001595F6 /* locationModel.swift in Sources */,
 				DE7300652C1FE803000282ED /* NaviView.swift in Sources */,
+				DE12252F2C23FF7100E1ED6C /* ResultView.swift in Sources */,
 				DE7300632C1FE5B8000282ED /* MainView.swift in Sources */,
 				DE6324E92C234957008EF5A7 /* ColorExtension.swift in Sources */,
 				DE7300612C1FE342000282ED /* WalkDiaryView.swift in Sources */,

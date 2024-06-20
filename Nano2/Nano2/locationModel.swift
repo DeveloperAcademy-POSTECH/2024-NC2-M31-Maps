@@ -16,6 +16,11 @@ func convertSecondsToTime(timeInSeconds: Int) -> String {
     return String(format: "%02i:%02i", minutes,seconds)
 }
 
+func DateString(in date: Date?) -> String {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "M월 dd일"
+    return formatter.string(from: date ?? Date())
+}
 
 struct Move {
     var latitude: Double

@@ -115,8 +115,8 @@ struct TrackingView: View {
             ZStack(alignment: Alignment(horizontal: .trailing, vertical: .bottom)){
                 Map(position: $position){
                     MapPolyline(coordinates: locationViewModel.CLwalkingRoute)
-                        .stroke(.blue, lineWidth: 5)
-                    
+                        .stroke(Color.customOrange, lineWidth: 5)
+
                     if let location = locationViewModel.thisLocation {
                         Annotation("내위치", coordinate: location.coordinate){
                             Image("pin")
@@ -156,9 +156,9 @@ struct TrackingView: View {
                         dismiss()
                     }
             }
+            .frame(height: 586)
             
             result
-            
             MarkingBtn
                 .onTapGesture {
                     let marking = MapLocation(
@@ -168,11 +168,6 @@ struct TrackingView: View {
                     
                     placeResult.append(marking)
                 }
-            
-            
-            
-            
-            
         }
         .onAppear {
             startTime = Date()
