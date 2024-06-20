@@ -17,15 +17,6 @@ struct NaviView: View {
     }
 }
 
-struct BackButton: View {
-    var body: some View {
-        Image(systemName: "chevron.left")
-            .font(.title)
-            .foregroundColor(Color.customOrange)
-
-    }
-}
-
 
 #Preview {
     NaviView()

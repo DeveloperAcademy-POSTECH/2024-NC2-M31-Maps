@@ -20,6 +20,28 @@ struct ResultView: View {
             
             VStack(spacing: 24){
                 Map(){
+                    Annotation("집", coordinate: .home)
+                    {
+                        Image(systemName: "house")
+                            .padding(4)
+                            .foregroundColor(.white)
+                            .background(Color.red)
+                            .cornerRadius(4)
+                    }
+                    Annotation("출발", coordinate: cllocation.first!)
+                    {
+                        Circle()
+                            .fill(Color.red)
+                            .stroke(Color.white, lineWidth: 2)
+                    }
+                    Annotation("도착", coordinate: cllocation.last!)
+                    {
+                        Circle()
+                            .fill(Color.blue)
+                            .stroke(Color.white, lineWidth: 2)
+                    }
+//                    .annotationTitles(.hidden)
+                    
                     MapPolyline(coordinates: cllocation)
                         .stroke(Color.customOrange, lineWidth: 5)
                     
@@ -116,3 +138,5 @@ struct ResultView: View {
 //#Preview {
 ////    ResultView()
 //}
+
+
