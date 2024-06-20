@@ -10,6 +10,11 @@
 		DE12252F2C23FF7100E1ED6C /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE12252E2C23FF7100E1ED6C /* ResultView.swift */; };
 		DE1225372C24198900E1ED6C /* MarkingPin.png in Resources */ = {isa = PBXBuildFile; fileRef = DE1225362C24198900E1ED6C /* MarkingPin.png */; };
 		DE245A092C21D6E0001595F6 /* locationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE245A082C21D6A4001595F6 /* locationModel.swift */; };
+		DE371AF52C2481CC002FFC0F /* 산책통계.png in Resources */ = {isa = PBXBuildFile; fileRef = DE371AF02C2481CC002FFC0F /* 산책통계.png */; };
+		DE371AF62C2481CC002FFC0F /* 산책기록.png in Resources */ = {isa = PBXBuildFile; fileRef = DE371AF12C2481CC002FFC0F /* 산책기록.png */; };
+		DE371AF72C2481CC002FFC0F /* 시작.png in Resources */ = {isa = PBXBuildFile; fileRef = DE371AF22C2481CC002FFC0F /* 시작.png */; };
+		DE371AF82C2481CC002FFC0F /* Group 320.png in Resources */ = {isa = PBXBuildFile; fileRef = DE371AF32C2481CC002FFC0F /* Group 320.png */; };
+		DE371AF92C2481CC002FFC0F /* 산책가자.png in Resources */ = {isa = PBXBuildFile; fileRef = DE371AF42C2481CC002FFC0F /* 산책가자.png */; };
 		DE6324E72C23375F008EF5A7 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6324E62C23375F008EF5A7 /* LocationViewModel.swift */; };
 		DE6324E92C234957008EF5A7 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6324E82C234957008EF5A7 /* ColorExtension.swift */; };
 		DE73005F2C1FC679000282ED /* LetsgoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE73005E2C1FC679000282ED /* LetsgoView.swift */; };
@@ -26,6 +31,12 @@
 		DE12252E2C23FF7100E1ED6C /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		DE1225362C24198900E1ED6C /* MarkingPin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MarkingPin.png; sourceTree = "<group>"; };
 		DE245A082C21D6A4001595F6 /* locationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = locationModel.swift; sourceTree = "<group>"; };
+		DE371AEF2C246916002FFC0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DE371AF02C2481CC002FFC0F /* 산책통계.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "산책통계.png"; sourceTree = "<group>"; };
+		DE371AF12C2481CC002FFC0F /* 산책기록.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "산책기록.png"; sourceTree = "<group>"; };
+		DE371AF22C2481CC002FFC0F /* 시작.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "시작.png"; sourceTree = "<group>"; };
+		DE371AF32C2481CC002FFC0F /* Group 320.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Group 320.png"; sourceTree = "<group>"; };
+		DE371AF42C2481CC002FFC0F /* 산책가자.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "산책가자.png"; sourceTree = "<group>"; };
 		DE6324E62C23375F008EF5A7 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		DE6324E82C234957008EF5A7 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		DE73005E2C1FC679000282ED /* LetsgoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetsgoView.swift; sourceTree = "<group>"; };
@@ -71,6 +82,7 @@
 		DE7ACF772C19794500996BFB /* Nano2 */ = {
 			isa = PBXGroup;
 			children = (
+				DE371AEF2C246916002FFC0F /* Info.plist */,
 				DE245A082C21D6A4001595F6 /* locationModel.swift */,
 				DE6324E62C23375F008EF5A7 /* LocationViewModel.swift */,
 				DE7ACF782C19794500996BFB /* Nano2App.swift */,
@@ -82,6 +94,11 @@
 				DE7ACF7C2C19794600996BFB /* Assets.xcassets */,
 				DE1225362C24198900E1ED6C /* MarkingPin.png */,
 				DE7300662C208950000282ED /* pin.png */,
+				DE371AF42C2481CC002FFC0F /* 산책가자.png */,
+				DE371AF12C2481CC002FFC0F /* 산책기록.png */,
+				DE371AF02C2481CC002FFC0F /* 산책통계.png */,
+				DE371AF22C2481CC002FFC0F /* 시작.png */,
+				DE371AF32C2481CC002FFC0F /* Group 320.png */,
 				DE7ACF7E2C19794600996BFB /* Preview Content */,
 				DE6324E82C234957008EF5A7 /* ColorExtension.swift */,
 			);
@@ -154,10 +171,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE371AF52C2481CC002FFC0F /* 산책통계.png in Resources */,
 				DE1225372C24198900E1ED6C /* MarkingPin.png in Resources */,
+				DE371AF82C2481CC002FFC0F /* Group 320.png in Resources */,
+				DE371AF72C2481CC002FFC0F /* 시작.png in Resources */,
+				DE371AF62C2481CC002FFC0F /* 산책기록.png in Resources */,
 				DE7ACF802C19794600996BFB /* Preview Assets.xcassets in Resources */,
 				DE7ACF7D2C19794600996BFB /* Assets.xcassets in Resources */,
 				DE7300672C208950000282ED /* pin.png in Resources */,
+				DE371AF92C2481CC002FFC0F /* 산책가자.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +335,7 @@
 				DEVELOPMENT_TEAM = 8W62FS2UWY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Nano2/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "App needs location servers for stuff. ";
 				INFOPLIST_KEY_NSMotionUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -344,6 +367,7 @@
 				DEVELOPMENT_TEAM = 8W62FS2UWY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Nano2/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "App needs location servers for stuff. ";
 				INFOPLIST_KEY_NSMotionUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

@@ -114,6 +114,15 @@ struct TrackingView: View {
         VStack(spacing: 24){
             ZStack(alignment: Alignment(horizontal: .trailing, vertical: .bottom)){
                 Map(position: $position){
+                    Annotation("집", coordinate: .home)
+                    {
+                        Image(systemName: "house")
+                            .padding(4)
+                            .foregroundColor(.white)
+                            .background(Color.red)
+                            .cornerRadius(4)
+                    }
+                    
                     MapPolyline(coordinates: locationViewModel.CLwalkingRoute)
                         .stroke(Color.customOrange, lineWidth: 5)
 
@@ -135,7 +144,6 @@ struct TrackingView: View {
                                 .stroke(Color.white, lineWidth: 2)
                         }
                         .annotationTitles(.hidden)
-                        
                     }
                 }
                 .mapControls{
@@ -144,12 +152,10 @@ struct TrackingView: View {
                 QuitBtn
                     . padding(20)
                     .onTapGesture {
+                        locationViewModel.stopUpdate()
+                        print("업데이트 안함용")
                         let route = convertCLLocToLoc(CLLoc: locationViewModel.CLwalkingRoute)
                         let newWalk = WalkInput(walkingRoute: route, distance: String(format: "%.2f", locationViewModel.totalDistance/1000), time: elapsedTime, marking: placeResult)
-                        
-                        for l in route{
-                            print(l.latitude, l.longitude)
-                        }
                         
                         modelContext.insert(newWalk)
 
@@ -165,7 +171,7 @@ struct TrackingView: View {
                         name:  "마킹_\(placeResult.count)",
                         latitude: locationViewModel.thisLocation?.coordinate.latitude ?? 0,
                         longitude: locationViewModel.thisLocation?.coordinate.longitude ?? 0)
-                    
+        
                     placeResult.append(marking)
                 }
         }
@@ -269,12 +275,9 @@ struct TrackingView: View {
     func convertCLLocToLoc(CLLoc: [CLLocationCoordinate2D]) -> [LocationInfo] {
         var walkingRoute: [LocationInfo] = []
         
-        print(CLLoc)
-        print()
         for CLLocation in CLLoc {
             let Location = LocationInfo(latitude: CLLocation.latitude, longitude: CLLocation.longitude)
             walkingRoute.append(Location)
-            print(Location.latitude, Location.longitude)
         }
         return walkingRoute
     }
@@ -296,6 +299,8 @@ struct TrackingView: View {
         .modelContainer(for: [WalkInput.self, MapLocation.self, LocationInfo.self], inMemory: true)
     
 }
+
+
 
 
 
