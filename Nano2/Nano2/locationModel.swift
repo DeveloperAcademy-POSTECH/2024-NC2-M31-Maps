@@ -39,7 +39,6 @@ class LocationInfo {
         self.latitude = latitude
         self.longitude = longitude
     }
-    
 }
 
 

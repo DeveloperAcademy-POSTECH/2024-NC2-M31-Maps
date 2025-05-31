@@ -164,7 +164,8 @@ struct WalkDiaryView: View {
 }
 
 #Preview {
-    WalkDiaryView()
-        .modelContainer(for: [WalkInput.self, MapLocation.self, LocationInfo.self], inMemory: true)
-    
+    NavigationStack{
+        WalkDiaryView()
+            .modelContainer(for: [WalkInput.self, MapLocation.self, LocationInfo.self], inMemory: true)
+    }
 }

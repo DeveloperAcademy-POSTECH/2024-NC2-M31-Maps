@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct MainView: View {
-    
-
     var body: some View {
         VStack(alignment: .leading, spacing: 16){
             WalkBtn
@@ -49,7 +47,6 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView()
-        .modelContainer(for: [WalkInput.self, MapLocation.self, LocationInfo.self], inMemory: true)
-
+        MainView()
+            .modelContainer(for: [WalkInput.self, MapLocation.self, LocationInfo.self], inMemory: true)
 }
